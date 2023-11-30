@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import img1 from "./Res/Images/6.png";
-import img2 from "./Res/Images/6.png";
-import img3 from "./Res/Images/6.png";
-import img4 from "./Res/Images/6.png";
-import img5 from "./Res/Images/6.png";
-import img6 from "./Res/Images/6.png";
-import img7 from "./Res/Images/6.png";
-import img8 from "./Res/Images/6.png";
+import img1 from "./Res/Images/img.png";
+import img2 from "./Res/Images/img.png";
+import img3 from "./Res/Images/img.png";
+import img4 from "./Res/Images/img.png";
+import img5 from "./Res/Images/img.png";
+import img6 from "./Res/Images/img.png";
+import img7 from "./Res/Images/img.png";
+import img8 from "./Res/Images/img.png";
 const App = () => {
   const [mouseDownAt, setMouseDownAt] = useState(null);
   const [prevPercentage, setPrevPercentage] = useState(0);
