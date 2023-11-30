@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import img1 from "./Res/Images/image 11.png";
-import img2 from "./Res/Images/image 10.png";
-import img3 from "./Res/Images/image 8.png";
-import img4 from "./Res/Images/image 9.png";
-import img5 from "./Res/Images/image 7.png";
-import img6 from "./Res/Images/image 6.png";
-import img7 from "./Res/Images/image 5.png";
-import img8 from "./Res/Images/image 4.png";
+import img1 from "./Res/Images/6.png";
+import img2 from "./Res/Images/6.png";
+import img3 from "./Res/Images/6.png";
+import img4 from "./Res/Images/6.png";
+import img5 from "./Res/Images/6.png";
+import img6 from "./Res/Images/6.png";
+import img7 from "./Res/Images/6.png";
+import img8 from "./Res/Images/6.png";
 const App = () => {
   const [mouseDownAt, setMouseDownAt] = useState(null);
   const [prevPercentage, setPrevPercentage] = useState(0);
@@ -76,25 +76,33 @@ const App = () => {
   window.ontouchmove = (e) => handleOnMove(e.touches[0]);
 
   return (
-    <div
-      id='image-track'
-      data-mouse-down-at='0'
-      data-prev-percentage='0'
-      onMouseDown={handleOnDown}
-      onTouchStart={(e) => handleOnDown(e.touches[0])}
-      onMouseUp={handleOnUp}
-      onTouchEnd={(e) => handleOnUp(e.touches[0])}
-      onMouseMove={handleOnMove}
-      onTouchMove={(e) => handleOnMove(e.touches[0])}>
-      <img className='image' draggable='false' src={img1} alt='' />
-      <img className='image' draggable='false' src={img2} />
-      <img className='image' draggable='false' src={img3} />
-      <img className='image' draggable='false' src={img4} />
-      <img className='image' draggable='false' src={img5} />
-      <img className='image' draggable='false' src={img6} />
-      <img className='image' draggable='false' src={img7} />
-      <img className='image' draggable='false' src={img8} />
-    </div>
+    <>
+      <div className='heading'>
+        <h1>SMOOTH CAROUSEL</h1>
+        <a href='//aparupganguly.com' target="_blank" >
+          <h3>~ By Aparup Ganguly</h3>
+        </a>
+      </div>
+      <div
+        id='image-track'
+        data-mouse-down-at='0'
+        data-prev-percentage='0'
+        onMouseDown={handleOnDown}
+        onTouchStart={(e) => handleOnDown(e.touches[0])}
+        onMouseUp={handleOnUp}
+        onTouchEnd={(e) => handleOnUp(e.touches[0])}
+        onMouseMove={handleOnMove}
+        onTouchMove={(e) => handleOnMove(e.touches[0])}>
+        <img className='image' draggable='false' src={img1} alt='' />
+        <img className='image' draggable='false' src={img2} />
+        <img className='image' draggable='false' src={img3} />
+        <img className='image' draggable='false' src={img4} />
+        <img className='image' draggable='false' src={img5} />
+        <img className='image' draggable='false' src={img6} />
+        <img className='image' draggable='false' src={img7} />
+        <img className='image' draggable='false' src={img8} />
+      </div>
+    </>
   );
 };
 
