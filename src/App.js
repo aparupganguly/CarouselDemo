@@ -1,25 +1,101 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import img1 from "./Res/Images/image 11.png";
+import img2 from "./Res/Images/image 10.png";
+import img3 from "./Res/Images/image 8.png";
+import img4 from "./Res/Images/image 9.png";
+import img5 from "./Res/Images/image 7.png";
+import img6 from "./Res/Images/image 6.png";
+import img7 from "./Res/Images/image 5.png";
+import img8 from "./Res/Images/image 4.png";
+const App = () => {
+  const [mouseDownAt, setMouseDownAt] = useState(null);
+  const [prevPercentage, setPrevPercentage] = useState(0);
+  const [percentage, setPercentage] = useState(0);
 
-function App() {
+  const handleOnDown = (e) => {
+    setMouseDownAt(e.clientX);
+  };
+
+  const handleOnUp = () => {
+    setMouseDownAt(0);
+    setPrevPercentage(percentage);
+  };
+
+  const handleOnMove = (e) => {
+    if (mouseDownAt === 0) return;
+
+    const mouseDelta = mouseDownAt - e.clientX;
+    const maxDelta = window.innerWidth / 2;
+
+    const nextPercentageUnconstrained =
+      prevPercentage - (mouseDelta / maxDelta) * 100;
+    const nextPercentage = Math.max(
+      Math.min(nextPercentageUnconstrained, 0),
+      -100,
+    );
+
+    setPercentage(nextPercentage);
+
+    const track = document.getElementById("image-track");
+    if (track) {
+      track.style.transform = `translate(${nextPercentage}%, -50%)`;
+
+      const images = track.getElementsByClassName("image");
+      for (const image of images) {
+        image.style.objectPosition = `${100 + nextPercentage}% center`;
+      }
+    }
+
+    track.animate(
+      {
+        transform: `translate(${nextPercentage}%, -50%)`,
+      },
+      { duration: 1200, fill: "forwards" },
+    );
+
+    for (const image of track.getElementsByClassName("image")) {
+      image.animate(
+        {
+          objectPosition: `${100 + nextPercentage}% center`,
+        },
+        { duration: 1200, fill: "forwards" },
+      );
+    }
+  };
+
+  window.onmousedown = (e) => handleOnDown(e);
+
+  window.ontouchstart = (e) => handleOnDown(e.touches[0]);
+
+  window.onmouseup = (e) => handleOnUp(e);
+
+  window.ontouchend = (e) => handleOnUp(e.touches[0]);
+
+  window.onmousemove = (e) => handleOnMove(e);
+
+  window.ontouchmove = (e) => handleOnMove(e.touches[0]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      id='image-track'
+      data-mouse-down-at='0'
+      data-prev-percentage='0'
+      onMouseDown={handleOnDown}
+      onTouchStart={(e) => handleOnDown(e.touches[0])}
+      onMouseUp={handleOnUp}
+      onTouchEnd={(e) => handleOnUp(e.touches[0])}
+      onMouseMove={handleOnMove}
+      onTouchMove={(e) => handleOnMove(e.touches[0])}>
+      <img className='image' draggable='false' src={img1} alt='' />
+      <img className='image' draggable='false' src={img2} />
+      <img className='image' draggable='false' src={img3} />
+      <img className='image' draggable='false' src={img4} />
+      <img className='image' draggable='false' src={img5} />
+      <img className='image' draggable='false' src={img6} />
+      <img className='image' draggable='false' src={img7} />
+      <img className='image' draggable='false' src={img8} />
     </div>
   );
-}
+};
 
 export default App;
