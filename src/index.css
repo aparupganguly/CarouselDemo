@@ -1,5 +1,7 @@
 * {
   overflow: hidden;
+  scale:1;
+ 
 }
 
 #image-track {
@@ -32,7 +34,22 @@ body {
   left: 10%;
   color: rgb(246, 246, 116);
   font-family: "Akira Expanded";
+
 }
+
+@keyframes scale-in {
+  0% {
+    background-size: 0%;
+    scale:0.9;
+
+  }
+  100% {
+    background-size: 100%;
+    overflow: hidden;
+    scale:1.09;
+  }
+}
+
 
 a {
   text-decoration: none;
@@ -43,4 +60,11 @@ a:hover {
 }
 h1:hover {
   scale: 0.9;
+}
+body{
+   background-image: url("./Res/Images/bg.png");
+  background-position: right center;
+  /* background-repeat: no-repeat; */
+  animation-name: scale-in;
+  animation-duration: 2s;
 }
