@@ -82,6 +82,7 @@ const App = () => {
         <a href='//aparupganguly.com' target="_blank" >
           <h3>~ By Aparup Ganguly</h3>
         </a>
+          <h4>Drag ➡️ </h4>
       </div>
       <div
         id='image-track'
