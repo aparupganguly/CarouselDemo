@@ -1,13 +1,22 @@
-import React, { useState } from "react";
-import img1 from "./Res/Images/img.png";
-import img2 from "./Res/Images/img.png";
-import img3 from "./Res/Images/img.png";
-import img4 from "./Res/Images/img.png";
-import img5 from "./Res/Images/img.png";
-import img6 from "./Res/Images/img.png";
-import img7 from "./Res/Images/img.png";
-import img8 from "./Res/Images/img.png";
+import React, { useState, useEffect } from "react";
+import img1 from "./Res/Images/LOGO/image7.png";
+import img2 from "./Res/Images/LOGO/image6.png";
+import img3 from "./Res/Images/LOGO/image5.png";
+import img4 from "./Res/Images/LOGO/image4.png";
+import img5 from "./Res/Images/LOGO/image3.png";
+import img6 from "./Res/Images/LOGO/image2.png";
+import img7 from "./Res/Images/LOGO/image1.png";
 const App = () => {
+  // const images = Array(100000).fill([
+  //   { img1 },
+  //   { img2 },
+  //   { img3 },
+  //   { img4 },
+  //   { img5 },
+  //   { img6 },
+  //   { img7 },
+  // ]);
+
   const [mouseDownAt, setMouseDownAt] = useState(null);
   const [prevPercentage, setPrevPercentage] = useState(0);
   const [percentage, setPercentage] = useState(0);
@@ -77,14 +86,6 @@ const App = () => {
 
   return (
     <>
-     <div class="notimage"></div>
-      <div className='heading'>
-        <h1>SMOOTH CAROUSEL</h1>
-        <a>
-          <h3>~ By Aparup Ganguly</h3>
-        </a>
-        <h4>Drag ➡️ </h4>
-      </div>
       <div
         id='image-track'
         data-mouse-down-at='0'
@@ -94,6 +95,7 @@ const App = () => {
         onMouseUp={handleOnUp}
         onTouchEnd={(e) => handleOnUp(e.touches[0])}
         onMouseMove={handleOnMove}
+        a
         onTouchMove={(e) => handleOnMove(e.touches[0])}>
         <img className='image' draggable='false' src={img1} alt='' />
         <img className='image' draggable='false' src={img2} />
@@ -102,7 +104,14 @@ const App = () => {
         <img className='image' draggable='false' src={img5} />
         <img className='image' draggable='false' src={img6} />
         <img className='image' draggable='false' src={img7} />
-        <img className='image' draggable='false' src={img8} />
+        <img className='image' draggable='false' src={img1} alt />
+        <img className='image' draggable='false' src={img2} />
+        <img className='image' draggable='false' src={img3} />
+        <img className='image' draggable='false' src={img4} />
+        <img className='image' draggable='false' src={img5} />
+        <img className='image' draggable='false' src={img6} />
+        <img className='image' draggable='false' src={img7} /> 
+
       </div>
     </>
   );
